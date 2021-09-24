@@ -28,10 +28,15 @@
 							<img src="/images/products/<%= searchResults[i].image %>" alt="imagen de producto">
 						</figure>
 						<article class="product-box_data">
+
 							<h2>$
 								<%= toThousand(searchResults[i].price - ((searchResults[i].price * searchResults[i].discount) /100)) %>
 							</h2>
+
+							<% if (searchResults[i].discount !== 0) { %>
 							<span><%= searchResults[i].discount %> % OFF</span>
+							<% } %>
+
 							<p><%= searchResults[i].name %></p>
 							<i class="fas fa-truck"></i>
 						</article>
