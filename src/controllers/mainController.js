@@ -8,14 +8,26 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	index: (req, res) => {
 		// Do the magic
-		let id = products[0].id
+		// FILTRAR PRODUCTOS visited
+		let productsVisited = products.filter(index => {
+			return index.category === 'visited';
+		}
+		);
+		// FILTRAR PRODUCTOS in-sale
+		let productsInsale = products.filter(index => {
+			return index.discount !== 0;
+		}
+		);
+		// res.send(productsVisited) // COMPROBAR
 		res.render('index', {
-			id: id,
+			productsVisited: productsVisited,
+			productsInsale: productsInsale,
 			products: products,
 			toThousand: toThousand,
 		}
-		)
+		);
 	},
+
 	search: (req, res) => {
 		// Do the magic
 		// ALMACENAR LA BUSQUEDA DEL USUARIO

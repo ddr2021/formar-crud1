@@ -46,7 +46,6 @@ const controller = {
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
-
 		//CUENTA Y SUMA NUEVO PRODUCTO
 		let idCount = products.length;
 		//CAPTURA DATOS DE FORMULARIO Y LOS PONE COMO OBJETO EN UNA VARIABLE PARA SER GUARDADO EN JSON
