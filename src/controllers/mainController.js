@@ -19,12 +19,14 @@ const controller = {
 	search: (req, res) => {
 		// Do the magic
 		// ALMACENAR LA BUSQUEDA DEL USUARIO
-		let toSearch = req.query.keywords;
+		// BUSQUEDA DE USUARIO Y PRODUCTOS (products) INGRESADA SEA MINUSCULA CON toLowerCase()
+		let toSearch = (req.query.keywords).toLowerCase();
 		// ALMACENAR RESULTADOS ENCONTRADOS EN ARRAY products
 		let searchResults = [];
 		// ITERAR LA BUSQUEDA HECHA SOBRE CADA INDICE DEL ARRAY products
 		for (let i = 0; i < products.length; i++) {
-			products[i].name.includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+			(products[i].name.toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+			// BUSQUEDA DE USUARIO Y PRODUCTOS (products) INGRESADA SEA MINUSCULA CON toLowerCase()
 		}
 		// res.send(idFind); // COMPROBAR
 		res.render('results', {

@@ -101,7 +101,7 @@ const controller = {
 		);
 		// res.send(req.params.id) //COMPROBAR
 		//products  EDITADO, ATUALIZADO Y ESCRITO EN JSON
-		let productsUpdate = JSON.stringify(productEdit);
+		let productsUpdate = JSON.stringify(productEdit, null, 3);
 		fs.writeFileSync(productsFilePath, productsUpdate);
 		// REDIRIGIR A /products
 		res.redirect('/products');
@@ -117,7 +117,7 @@ const controller = {
 		);
 		// res.send(req.params.id) //COMPROBAR QUE ESTE LLEGAN id
 		//products  EDITADO, ATUALIZADO Y ESCRITO EN JSON
-		let productsUpdate = JSON.stringify(productsMenosUno);
+		let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
 		fs.writeFileSync(productsFilePath, productsUpdate);
 		// res.send(productsMenosUno) // COMPROBAR ELIMINACION EN EL NAVEGADOR SIN GUARDAR EN JSON
 		// REDIRIGIR A /products
