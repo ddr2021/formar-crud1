@@ -61,7 +61,7 @@ const controller = {
 		// NUEVO PRODUCTO AGREGADO A ARRAY products
 		products.push(newProduct);
 		//products ATUALIZADO (AGREGADO NUEVO PRODUCTO) Y ESCRITO EN JSON
-		let productsAdd = JSON.stringify(products);
+		let productsAdd = JSON.stringify(products, null, 3); // null. 3  FORMATEA JSON LEGIBLEMENTE
 		fs.writeFileSync(productsFilePath, productsAdd);
 		// res.send(products); // COMPROBAR products ACTUALIZADO
 		// res.send(newProduct); // COMPROBAR NUEVO PRODUCTO
