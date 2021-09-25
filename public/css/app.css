@@ -30,6 +30,8 @@ body {
   font-family: var(--base-font-family);
   font-weight: 300;
   background-color: var(--light-gray);
+  margin-top: 83px;
+
 }
 
 ul,
@@ -67,8 +69,13 @@ hr {
 
 /*====== Main Header ======*/
 .main-header {
-  padding: 15px 0;
+  padding: 3px 0;
   background-color: var(--yellow);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+
 }
 
 .main-header_home-link,
@@ -377,6 +384,7 @@ hr {
 .action-button.edit {
   background-color: chocolate;
 }
+
 .action-button.delete {
   background-color: rgb(248, 69, 37);
 }
@@ -431,6 +439,8 @@ textarea.form-input {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin-top: 3px;
+
   }
 
   .left-navbar a,
