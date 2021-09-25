@@ -120,7 +120,7 @@ const controller = {
 		fs.writeFileSync(productsFilePath, productsUpdate);
 		// res.send(productsMenosUno) // COMPROBAR ELIMINACION EN EL NAVEGADOR SIN GUARDAR EN JSON
 		// REDIRIGIR A /products
-		res.redirect('/products');
+		res.redirect('/products/');
 	}
 };
 

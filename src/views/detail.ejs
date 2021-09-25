@@ -33,10 +33,10 @@
 
 						<% if (products[id].discount !== 0) { %>
 						<p class="product-detail-price small">
-							<span>$<%= toThousand(products[id].price) %></span>
+							<span>$ <%= toThousand(products[id].price) %></span>
 							/
 							<b>
-								<%= products[id].discount %>% OFF
+								<%= products[id].discount %> % OFF
 							</b>
 						</p>
 						<p class="product-detail-price">
@@ -63,8 +63,9 @@
 						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
 						<hr>
 
-						<a href="/products/edit/<%= id %>?_method=delete" class="action-button edit">
-							EDITAR PRODUCTO</a>
+						<a href="/products/edit/<%= id %>" class=" action-button edit">
+							EDITAR PRODUCTO
+						</a>
 
 						<form action="/products/<%= id %>?_method=delete" method="POST" style="display: inline-flex">
 							<button type="submit" class="action-button delete">ELIMINAR</button>
