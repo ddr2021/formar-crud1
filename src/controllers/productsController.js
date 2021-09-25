@@ -72,10 +72,11 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		//  id IDENTIFICADOR AJUSTADO A INDICES DE (ARRAY EN FORMATO JSON)
-		let id = +req.params.id;
-		// PRODUCTO A EDITAR
-		let productToEdit = products[id];
+		//  id ALMACENA NUMERO IDENIFICADOR DE PRODUCTO A EDITAR
+		//		 + ADELANTE PARA ESPECIFICAR QUE EL DATO CONTENIDO SEA NUMBER Y PASE  LA IGUALDAD ESTRICTA ===		
+		let id = +req.params.id; // +req.params.id TRAE id ESCRITO EN URI
+		//  productToEdit PRODUCTO OBJETO A EDITAR
+		let productToEdit = products[id]; //products[id] SELECCIONA EL id DE PRODUCTO ESPECIFICO A EDITAR 
 		return res.render('product-edit-form', {
 			id: id,
 			productToEdit: productToEdit,
@@ -85,10 +86,12 @@ const controller = {
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
-		//AGREGAR + ADELANTE PARA ESPECIFICAR QUE EL DATO CONTENIDO SEA NUMBER Y PASE  LA IGUALDAD ESTRICTA ===
-		let idIndexToEdit = +req.params.id;
-		let productEdit = products.map(function (indice) {
-			if (indice.id === idIndexToEdit) {
+		//  id ALMACENA NUMERO IDENIFICADOR DE PRODUCTO A EDITAR
+		//		 + ADELANTE PARA ESPECIFICAR QUE EL DATO CONTENIDO SEA NUMBER Y PASE  LA IGUALDAD ESTRICTA ===		
+		let id = +req.params.id; // +req.params.id TRAE id ESCRITO EN URI
+		let productEdited = products.map(function (indice) {
+			// indice.id RECORRE ARRAY products BUSCANDO id INGRESADO EN URI 
+			if (indice.id === id) { // COMPARACION Y CONDICION PARA EJECUTAR LO {SIGUEINTE}
 				indice.name = req.body.name;
 				indice.price = +req.body.price;
 				indice.discount = +req.body.discount;
@@ -100,7 +103,7 @@ const controller = {
 		);
 		// res.send(req.params.id) //COMPROBAR
 		//products  EDITADO, ATUALIZADO Y ESCRITO EN JSON
-		let productsUpdate = JSON.stringify(productEdit, null, 3);
+		let productsUpdate = JSON.stringify(productEdited, null, 3);
 		fs.writeFileSync(productsFilePath, productsUpdate);
 		// REDIRIGIR A /products
 		res.redirect('/products');

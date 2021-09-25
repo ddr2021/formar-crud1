@@ -145,11 +145,11 @@
    },
    {
       "id": 16,
-      "name": "Adidas",
+      "name": "Zapatillas Adidas",
       "price": 47000,
       "discount": 0,
-      "category": "",
-      "description": "Caro pero sirve."
+      "category": "visited",
+      "description": "Caro."
    },
    {
       "id": 17,
@@ -166,5 +166,13 @@
       "discount": 0,
       "category": "visited",
       "description": "Llamadas y mensajes de texto. Alarma. Seguro y resistente."
+   },
+   {
+      "id": 19,
+      "name": "Zapatillas Topper",
+      "price": 7000,
+      "discount": 10,
+      "category": "visited",
+      "description": "Calidad al mejor precio."
    }
 ]
