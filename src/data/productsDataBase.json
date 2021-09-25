@@ -22,7 +22,7 @@
       "name": "Samsung Galaxy S10",
       "price": 72999,
       "discount": 25,
-      "category": "in-sale",
+      "category": "visited",
       "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
       "image": "img-samsung-galaxy-s10.jpg"
    },
@@ -33,7 +33,7 @@
       "price": 50000,
       "discount": 15,
       "image": "img-heladera-whirpool.jpg",
-      "category": ""
+      "category": "visited"
    },
    {
       "id": 4,
