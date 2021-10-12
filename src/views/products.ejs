@@ -21,7 +21,9 @@
 				<section class="product-box">
 					<a href="/products/<%= element.id %>">
 						<figure class="product-box_image">
-							<img src="/images/products/<%= element.image %> " alt="imagen de producto">
+							<!--						  	SI EN DB     			   image ?   PON	 image :  default-image.png SINO...-->
+							<img src="/images/products/<%= element.image ? element.image : 'default-image.png'%>"
+								alt="imagen de producto">
 						</figure>
 						<article class="product-box_data">
 							<h2>

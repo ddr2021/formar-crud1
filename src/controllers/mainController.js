@@ -40,7 +40,7 @@ const controller = {
 			(products[i].name.toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
 			// BUSQUEDA DE USUARIO Y PRODUCTOS (products) INGRESADA SEA MINUSCULA CON toLowerCase()
 		}
-		// res.send(idFind); // COMPROBAR
+		// res.send(searchResults); // COMPROBAR
 		res.render('results', {
 			searchResults: searchResults,
 			toThousand: toThousand,

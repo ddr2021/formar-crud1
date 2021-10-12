@@ -45,27 +45,35 @@ const controller = {
 	},
 	// Create -  Method to store
 	store: (req, res) => {
-		// Do the magic
-		//CUENTA Y SUMA NUEVO PRODUCTO
-		let idCount = products.length;
-		//CAPTURA DATOS DE FORMULARIO Y LOS PONE COMO OBJETO EN UNA VARIABLE PARA SER GUARDADO EN JSON
-		let newProduct = {
-			id: idCount++,
-			name: req.body.name,
-			price: +req.body.price,
-			discount: +req.body.discount,
-			category: req.body.category,
-			description: req.body.description,
-		};
-		// NUEVO PRODUCTO AGREGADO A ARRAY products
-		products.push(newProduct);
-		//products ATUALIZADO (AGREGADO NUEVO PRODUCTO) Y ESCRITO EN JSON
-		let productsAdd = JSON.stringify(products, null, 3); // null. 3  FORMATEA JSON LEGIBLEMENTE
-		fs.writeFileSync(productsFilePath, productsAdd);
-		// res.send(products); // COMPROBAR products ACTUALIZADO
-		// res.send(newProduct); // COMPROBAR NUEVO PRODUCTO
-		// REDIRIGIR A /products
-		res.redirect('/products');
+		//SI NO HAY req.file REDIBUJAR 	res.render('product-create-form'); //EN productsController.js HAY OTRA CONDICION QUE PREVALECE, PARA VOLVER AL FORM EN CASO DE NO INTRODUCIR ARCHIVOS
+		// req.file.size < 12 REDIBUJAR... SERIA OTRA VALIDACION
+		if (req.file) {
+			// Do the magic
+			//CUENTA Y SUMA NUEVO PRODUCTO
+			let idCount = products.length;
+			//CAPTURA DATOS DE FORMULARIO Y LOS PONE COMO OBJETO EN UNA VARIABLE PARA SER GUARDADO EN JSON
+			let newProduct = {
+				id: idCount++,
+				name: req.body.name,
+				price: +req.body.price,
+				discount: +req.body.discount,
+				category: req.body.category,
+				description: req.body.description,
+				image: req.file.filename,
+			};
+			console.log(req.file.name);
+			// NUEVO PRODUCTO AGREGADO A ARRAY products
+			products.push(newProduct);
+			//products ATUALIZADO (AGREGADO NUEVO PRODUCTO) Y ESCRITO EN JSON
+			let productsAdd = JSON.stringify(products, null, 3); // null. 3  FORMATEA JSON LEGIBLEMENTE
+			fs.writeFileSync(productsFilePath, productsAdd);
+			// res.send(products); // COMPROBAR products ACTUALIZADO
+			// res.send(newProduct); // COMPROBAR NUEVO PRODUCTO
+			// REDIRIGIR A /products
+			res.redirect('/products');
+		} else {
+			res.render('product-create-form');
+		}
 	},
 
 	// EDITAR PRODUCTO
